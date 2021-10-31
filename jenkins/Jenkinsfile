@@ -23,7 +23,7 @@ node {
         sh 'npm install'
     }
 	stage('helm install') {
-		sh 'helm upgrade -i node-hello deploy/helm/.'
+		sh 'helm upgrade -i node-hello deploy/node-hello/.'
 	}
     stage('docker Build') {
         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
