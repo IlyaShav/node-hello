@@ -22,14 +22,15 @@ node {
     stage('Compile') {
         sh 'npm install'
     }
-	stage('helm install') {
-		sh 'helm upgrade -i node-hello deploy/node-hello/.'
-	}
+	
     stage('docker Build') {
         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
            docker.build("ilyashav/jenkins").push("${commit_id}")
          }
     }
+    stage('helm install') {
+		sh 'helm upgrade -i node-hello deploy/node-hello/.'
+	}
 }
 
 
