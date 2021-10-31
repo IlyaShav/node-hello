@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: node-hello
-        image: nlitterat/compie
+        image: ilyashav/jenkins:42cb9ae
         ports:
         - containerPort: 3000
